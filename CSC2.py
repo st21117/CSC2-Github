@@ -69,6 +69,20 @@ def append_name():
     # these are the global variables that are used
     global julies_tracker, entry_name, entry_item_hired, entry_no_items_hired, entry_receipt_number
     # append each item to its own area of the list
+    julies_tracker.append([entry_name.get(), entry_item_hired.get(), entry_no_items_hired.get(), entry_receipt_number()])
+    
+    # clear the boxes
+    entry_name.delete(0, 'end')
+    entry_item_hired.delete(0, 'end')
+    entry_no_items_hired.delete(0, 'end')
+    entry_receipt_number.delete(0, 'end')
+    total_entries += 1
+
+
+
+
+
+
 
 
 
