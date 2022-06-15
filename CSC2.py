@@ -11,7 +11,7 @@ def quit():
 
 def print_julies_tracker():
     #there are the global variables that are used
-    global j_ames, total_entries, name_count
+    global j_names, total_entries, name_count
     name_count=0
     #create the column headings
     Label(main_window, font=("Helvetica 10 bold"), text="Row").grid(column=0, row=7)
@@ -65,7 +65,7 @@ def check_inputs():
 # add the next items in list
 
 
- def append_name():
+def append_name():
     # these are the global variables that are used
     global julies_tracker, entry_name, entry_item_hired, entry_no_items_hired, entry_receipt_number
     # append each item to its own area of the list
@@ -78,9 +78,9 @@ def check_inputs():
     entry_receipt_number.delete(0, 'end')
     total_entries += 1
 
-# delete a row from the list\
+# delete a row from the list
 
- def delete_row():
+def delete_row():
      # these are the global variables that are used
      global julies_tracker, delete_item, total_entries, name_count
      # find which row is to be deleted and delete it
@@ -95,6 +95,48 @@ def check_inputs():
      Label(main_window, text="           ").grid(column=4, row=name_count+7)
      # print all the items in the list
      print_julies_tracker()
+
+# create the buttons and labels
+
+
+def setup_buttons():
+    # these are the global variables that are used
+    global julies_tracker, entry_name, entry_item_hired, entry_no_item_hired, entry_receipt_number, total_entries, delete_item
+    # create all the empty and default labels, buttons and entry boxes. Put them in correct grid location
+    Label(main_window, text="Name"). grid(column=0, row=0, sticky=E)
+    entry_name = Entry(main_window)
+    entry_name.grid(column=1, row=0)
+    Label(main_window, text="Item Hired"). grid(column=0, row=1, sticky=E)
+    entry_item_hired = Entry(main_window)
+    entry_item_hired.grid(column=1, row=1)
+    Button(main_window, text="Exit", command=quit, width=10) .grid(column=4, row=0, sticky=E)
+    Button(main_window, text="Append Details", command=check_inputs).grid(column=3, row=1)
+    Button(main_window, text="Print Details", command=print_julies_tracker, width=10).grid(column=4, row=1, sticky=E)
+    Label(main_window, text="No Items Hired") .grid(column=0, row=2, sticky=E)
+    entry_no_item_hired = Entry(main_window)
+    entry_no_item_hired.grid(column=1, row=2)
+    delete_item = Entry(main_window)
+    delete_item.grid(column=4, row=2)
+    Button(main_window, text="Delete Row", command=delete_row, width=10) .grid(column=4, row=3, sticky=E)
+    Label(main_window, text="           ").grid(column=2, row=0)
+
+
+ # start the program running
+
+
+ def main():
+     # these are the global versions that are used
+     global main_window
+     global julies_tracker, entry_name, entry_item_hired, entry_no_item_hired, entry_receipt_number, total_entries
+     # create empty list for camp details and empty variables for entries in list
+     julies_tracker = []
+     total_entries = 0
+     # create the GUI
+     main_window = Tk()
+     setup_buttons()
+     main_window.mainloop()
+
+
 
 
 
