@@ -6,7 +6,7 @@ from tkinter import*
 def quit():
     main_window.destroy()
 
-# print details of all the camps
+# print details of all the variables
 
 
 def print_julies_tracker():
