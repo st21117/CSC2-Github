@@ -65,7 +65,7 @@ def check_inputs():
 # add the next items in list
 
 
-def append_name():
+ def append_name():
     # these are the global variables that are used
     global julies_tracker, entry_name, entry_item_hired, entry_no_items_hired, entry_receipt_number
     # append each item to its own area of the list
@@ -77,6 +77,26 @@ def append_name():
     entry_no_items_hired.delete(0, 'end')
     entry_receipt_number.delete(0, 'end')
     total_entries += 1
+
+# delete a row from the list\
+
+ def delete_row():
+     # these are the global variables that are used
+     global julies_tracker, delete_item, total_entries, name_count
+     # find which row is to be deleted and delete it
+     del julies_tracker[int(delete_item.get())]
+     total_entries = total_entries - 1
+     delete_item.delete(0, 'end')
+     # clear the last item displayed on the GUI
+     Label(main_window, text="           ").grid(column=0, row=name_count+7)
+     Label(main_window, text="           ").grid(column=1, row=name_count+7)
+     Label(main_window, text="           ").grid(column=2, row=name_count+7)
+     Label(main_window, text="           ").grid(column=3, row=name_count+7)
+     Label(main_window, text="           ").grid(column=4, row=name_count+7)
+     # print all the items in the list
+     print_julies_tracker()
+
+
 
 
 
