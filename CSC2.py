@@ -117,14 +117,16 @@ def setup_buttons():
     entry_no_item_hired.grid(column=1, row=2)
     delete_item = Entry(main_window)
     delete_item.grid(column=4, row=2)
+    Label(main_window, text="Receipt Number"). grid(column=0,row=3, sticky=E)
+    entry_receipt_number = Entry(main_window)
+    entry_receipt_number.grid(column=1, row=3)
     Button(main_window, text="Delete Row", command=delete_row, width=10) .grid(column=4, row=3, sticky=E)
     Label(main_window, text="           ").grid(column=2, row=0)
 
 
  # start the program running
 
-
- def main():
+def main():
      # these are the global versions that are used
      global main_window
      global julies_tracker, entry_name, entry_item_hired, entry_no_item_hired, entry_receipt_number, total_entries
@@ -136,7 +138,7 @@ def setup_buttons():
      setup_buttons()
      main_window.mainloop()
 
-
+main()
 
 
 
