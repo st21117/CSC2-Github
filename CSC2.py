@@ -47,8 +47,8 @@ def check_inputs():
     if len(entry_item_hired.get()) == 0:
         Label(main_window, fg="red", text="Required") .grid(column=2, row=1)
     # Check the number of items is not blank and between 1 and 500, set error text if blank
-    if (entry_no_items_hired().isdigit()):
-        if int(entry_no_items_hired()) < 1 or int(entry_no_items_hired.get()) > 500:
+    if (entry_no_item_hired.get().isdigit()):
+        if int(entry_no_item_hired()) < 1 or int(entry_no_item_hired.get()) > 500:
             Label(main_window, fg="red", text="1-500 only") .grid(column=2, row=2)
             input_check = 1
 
